@@ -51,9 +51,9 @@ namespace Project1
         System::Windows::Forms::Label^ labelTime;
         System::Windows::Forms::Label^ labelPeriods;
         MoneyList^ moneyList;
-    private: System::Windows::Forms::TextBox^ textBoxAmount;
-    private: System::Windows::Forms::Button^ buttonAdd;
-    private: System::Windows::Forms::Button^ buttonWithdraw;
+        System::Windows::Forms::TextBox^ textBoxAmount;
+        System::Windows::Forms::Button^ buttonAdd;
+        System::Windows::Forms::Button^ buttonWithdraw;
 
 
         System::ComponentModel::Container^ components;
@@ -347,28 +347,6 @@ namespace Project1
             clearTextBoxes();
         }
 
-
-        System::Void buttonWithdrawAmount_Click(System::Object^ sender, System::EventArgs^ e)
-        {
-            if (String::IsNullOrEmpty(textBoxAmount->Text))
-            {
-                MessageBox::Show("Please enter the amount to withdraw", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-                return;
-            }
-
-            double amount = Convert::ToDouble(textBoxAmount->Text);
-            MoneyManagement^ money = moneyList->getLatestMoneyManagement();
-            if (money != nullptr)
-            {
-                money->withdraw(amount);
-                moneyList->printAll();
-                textBoxAmount->Clear();
-            }
-            else
-            {
-                MessageBox::Show("No MoneyManagement object found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-            }
-        }
 
         System::Void buttonShowAll_Click(System::Object^ sender, System::EventArgs^ e)
         {
