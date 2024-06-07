@@ -149,12 +149,4 @@ public:
         return latestMoneyManagement; 
     }
 
-    ~MoneyList() {
-        while (head != nullptr) {
-            Node^ temp = head;
-            head = head->next;
-            delete temp->data;
-            delete temp;
-        }
-    }
 };
